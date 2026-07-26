@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.springframework.grpc.sample.proto";
+
+service Calculator {
+  rpc AccumulateSum (stream NumberRequest) returns (stream SumReply) {} // 요청, 응답 모두 stream : 양방향 스트리밍
+}
+
+message NumberRequest {
+  int32 value = 1;
+}
+
+message SumReply {
+  int32 running_total = 1;
+}
