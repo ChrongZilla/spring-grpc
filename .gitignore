@@ -36,3 +36,5 @@ shell.log
 .profiler
 nbproject/
 
+grpcurl.exe
+
