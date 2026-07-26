@@ -6,6 +6,7 @@ import org.springframework.grpc.sample.proto.HelloReply;
 import org.springframework.grpc.sample.proto.HelloRequest;
 import org.springframework.grpc.sample.proto.SimpleGrpc;
 import org.springframework.stereotype.Service;
+import java.time.LocalDate; // 추가 !
 
 import io.grpc.stub.StreamObserver;
 
@@ -45,6 +46,16 @@ public class GrpcServerService extends SimpleGrpc.SimpleImplBase {
 				return;
 			}
 		}
+		responseObserver.onCompleted();
+	}
+
+	// 날짜 추가
+	@Override
+	public void sayHelloWithDate(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
+		log.info("Hello " + req.getName());
+		String today = LocalDate.now().toString();
+		HelloReply reply = HelloReply.newBuilder().setMessage(today + " ==> Hello, " + req.getName()).build();
+		responseObserver.onNext(reply);
 		responseObserver.onCompleted();
 	}
 

@@ -10,6 +10,7 @@ service Simple {
     rpc SayHello (HelloRequest) returns (HelloReply) {
     }
     rpc StreamHello(HelloRequest) returns (stream HelloReply) {}
+    rpc SayHelloWithDate (HelloRequest) returns (HelloReply) {} // 날짜 추가!
 }
 
 // The request message containing the user's name.
