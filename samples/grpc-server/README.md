@@ -34,6 +34,12 @@ $ grpcurl -d '{"name":"Hi"}' -plaintext localhost:9090 Simple.SayHello
 }
 ```
 
+Calculator's bidirectional streaming (`AccumulateSum`) can be tried with:
+
+```
+$ grpcurl -d '{"value":1}' -plaintext localhost:9090 Calculator.AccumulateSum
+```
+
 ## Native Image
 [Native Image with Gradle](./HELP-gradle.md)
 
