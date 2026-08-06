@@ -157,7 +157,6 @@ public class GrpcServerLifecycle implements SmartLifecycle {
 			logger.debug("Initiating gRPC server shutdown");
 			this.eventPublisher.publishEvent(new GrpcServerShutdownEvent(this, localServer));
 			localServer.shutdown();
-			// Wait for the server to shutdown completely before continuing with
 			// destroying
 			// the spring context
 			try {
